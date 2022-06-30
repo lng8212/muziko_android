@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".muziko.fragments.ArtistSongsFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="32"
+        android:orientation="vertical"
+        android:layout_marginStart="20dp"
+        tools:ignore="MissingConstraints">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_weight="2"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:id="@+id/constraint_back_artists"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                app:layout_constraintEnd_toStartOf="@+id/textView"
+                app:srcCompat="@drawable/ic_arrow_left" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="Artists"
+                android:textColor="@color/color_app"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_weight="4"
+            android:layout_width="wrap_content"
+            android:paddingTop="10dp"
+            android:layout_height="0dp">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                app:layout_constraintEnd_toStartOf="@+id/textView2"
+                app:srcCompat="@drawable/ic_img_song" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:paddingLeft="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Selena Gomez"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:gravity="center_vertical"
+                app:layout_constraintEnd_toEndOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_weight="23"
+            android:id="@+id/recyclerview_artists_songs"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"/>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

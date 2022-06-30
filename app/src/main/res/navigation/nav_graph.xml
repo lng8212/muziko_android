@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/navigation_library">
+
+    <fragment
+        android:id="@+id/navigation_library"
+        android:name="com.android.music.ui.fragments.LibraryFragment"
+        android:label="Library"
+        tools:layout="@layout/fragment_library" >
+        <action
+            android:id="@+id/action_navigation_library_to_playlistsFragment"
+            app:destination="@id/playlistsFragment" />
+        <action
+            android:id="@+id/action_navigation_library_to_artistsFragment"
+            app:destination="@id/artistsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_search"
+        android:name="com.android.music.ui.fragments.SearchFragment"
+        android:label="Search"
+        tools:layout="@layout/fragment_search" />
+    <fragment
+        android:id="@+id/navigation_song"
+        android:name="com.android.music.ui.fragments.SongFragment"
+        android:label="Song"
+        tools:layout="@layout/fragment_song" />
+    <fragment
+        android:id="@+id/navigation_favourite"
+        android:name="com.android.music.ui.fragments.FavouriteFragment"
+        android:label="Favourite"
+        tools:layout="@layout/fragment_favourite" />
+    <fragment
+        android:id="@+id/artistsFragment"
+        android:name="com.android.music.muziko.fragments.ArtistsFragment"
+        android:label="fragment_artists"
+        tools:layout="@layout/fragment_artists" >
+        <action
+            android:id="@+id/action_artistsFragment_to_navigation_library"
+            app:destination="@id/navigation_library"
+            app:popUpTo="@id/navigation_library"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_artistsFragment_to_artistSongsFragment"
+            app:destination="@id/artistSongsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/playlistsFragment"
+        android:name="com.android.music.muziko.fragments.PlaylistsFragment"
+        android:label="fragment_playlists"
+        tools:layout="@layout/fragment_playlists" >
+        <action
+            android:id="@+id/action_playlistsFragment_to_navigation_library"
+            app:destination="@id/navigation_library"
+            app:popUpTo="@id/navigation_library"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_playlistsFragment_to_addPlaylistsFragment"
+            app:destination="@id/addPlaylistsFragment" />
+        <action
+            android:id="@+id/action_playlistsFragment_to_playlistSongsFragment"
+            app:destination="@id/playlistSongsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addPlaylistsFragment"
+        android:name="com.android.music.muziko.fragments.AddPlaylistsFragment"
+        android:label="fragment_add_playlists"
+        tools:layout="@layout/fragment_add_playlists" >
+        <action
+            android:id="@+id/action_addPlaylistsFragment_to_playlistsFragment"
+            app:destination="@id/playlistsFragment"
+            app:popUpTo="@id/playlistsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/playlistSongsFragment"
+        android:name="com.android.music.muziko.fragments.PlaylistSongsFragment"
+        android:label="fragment_playlist_songs"
+        tools:layout="@layout/fragment_playlist_songs" >
+        <action
+            android:id="@+id/action_playlistSongsFragment_to_playlistsFragment"
+            app:destination="@id/playlistsFragment"
+            app:popUpTo="@id/playlistsFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="myArg"
+            app:argType="com.android.music.muziko.model.Playlist" />
+    </fragment>
+    <fragment
+        android:id="@+id/artistSongsFragment"
+        android:name="com.android.music.muziko.fragments.ArtistSongsFragment"
+        android:label="fragment_artist_songs"
+        tools:layout="@layout/fragment_artist_songs" >
+        <action
+            android:id="@+id/action_artistSongsFragment_to_artistsFragment"
+            app:destination="@id/artistsFragment"
+            app:popUpTo="@id/artistsFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="myArtist"
+            app:argType="string" />
+        <argument
+            android:name="imgArtist"
+            app:argType="android.graphics.Bitmap" />
+    </fragment>
+
+
+</navigation>
